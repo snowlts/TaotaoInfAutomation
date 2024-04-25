@@ -1,0 +1,4 @@
+1、caseloader，load的时候要根据接口存到字典里
+2、excel用例预处理，或者兼容更好
+3、common再做更深的包装
+4、taotao的返回值不规范

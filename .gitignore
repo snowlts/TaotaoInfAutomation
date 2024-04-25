@@ -1,3 +1,6 @@
 /.venv/
 /.idea/
 /.git/
+/demo/
+**/__pycache__/
+*.log

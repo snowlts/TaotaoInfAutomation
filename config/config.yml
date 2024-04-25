@@ -1,0 +1,11 @@
+
+BASE:
+  test:
+    url: "http://127.0.0.1:8000/"
+    log:
+      logger_name: "TaoTao"
+      console_log_level: "debug"
+      file_log_level: "info"
+      logfile_extention: ".log"
+    db:
+      uri: "H:/codes/python/django-restful/taotao/taotao/db.sqlite3"
