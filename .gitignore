@@ -4,3 +4,7 @@
 /demo/
 **/__pycache__/
 *.log
+**/report/
+**/html/
+
+!**/categories.json

@@ -12,6 +12,33 @@ def json_load(str1,str_type='json'):
 def get_sql_field(sql):
     fields = re.findall(r"select (.+) from",sql)
     return fields[0].strip().split(',')
+
+def get_allure_severity(case_severity):
+    '''
+    阻塞 = 'blocker'
+    严重 = 'critical'
+    一般 = 'normal'
+    次要 = 'minor'
+    建议 = 'trivial'
+    :param case_severity:
+    :return:
+    '''
+    if case_severity=='阻塞':
+        return 'blocker'
+    elif case_severity =='严重':
+        return 'critical'
+    elif case_severity =='一般':
+        return 'normal'
+    elif case_severity =='次要':
+        return 'minor'
+    elif  case_severity =='建议':
+        return 'trivial'
+    else:
+        raise Exception('没有这个用例等级，请检查是否书写错误')
+
+
+
+
 class Parameterize:
     def __init__(self,pattern=r'\${(.+?)}\$'):
         self.pattern = pattern
