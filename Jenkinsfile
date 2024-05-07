@@ -27,7 +27,7 @@ pipeline{
             echo "test finished,please check"
             sh 'echo $WORKSPACE'
             sh 'report_dir=$WORKSPACE/report/report;if [ ! -e $report_dir ];then mkdir $report_dir;fi'
-            allure includeProperties: false, jdk: '', results: [[path: "$report_dir"]]
+            allure includeProperties: false, jdk: '', results: [[path: 'report/report']]
 
 
 
