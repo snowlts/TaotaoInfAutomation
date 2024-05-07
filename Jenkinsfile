@@ -9,11 +9,15 @@ pipeline{
             steps{
                 sh 'echo deploy taotao!'
                 sh 'echo $WORKSPACE'
-                env.taotao_dir = $(dirname env.WORKSPACE);
-                echo env.taotao_dir
-                sh 'git clone https://gitee.com/snowlts/taotao.git ${env.taotao_dir}'
-                sh 'pip install -r ${env.taotao_dir}/requirements.txt'
-                sh 'python ${env.taotao_dir}/taotao/manage.py runserver'
+                def taotao_dir = sh(script: "dirname $WORKSPACE", returnStdout:true).trim()
+                echo "${taotao_dir}"
+
+                dir("${taotao_dir}"){
+                    git credentialsId: '381e7be1-1cf0-4a2c-9577-8e4e7ab2026b', url: 'https://gitee.com/snowlts/taotao.git'
+                }
+
+                sh 'pip install -r ${taotao_dir}/requirements.txt'
+                sh 'python ${taotao_dir}/taotao/manage.py runserver'
                 sh 'echo deploy taotao done!'
             }
         }
