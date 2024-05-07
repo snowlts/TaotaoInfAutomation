@@ -1,6 +1,5 @@
-1、caseloader，load的时候要根据接口存到字典里
-2、excel用例预处理，或者兼容更好
-3、common再做更深的包装
-4、taotao的返回值不规范
-5、有空可以扩展feishu或者企业微信之类的消息发送
-6、jenkins可以增加被测环境部署
+1、common再做更深的包装
+2、taotao商城的返回值不规范
+3、有空可以扩展feishu或者企业微信之类的消息发送
+4、taotao部署要检查是否成功，以及提前清除之前的部署，还有就是可以部署到其他node
+5、jenkinsfile增加发邮件功能
