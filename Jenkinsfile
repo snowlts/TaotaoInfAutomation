@@ -8,10 +8,10 @@ pipeline{
         stage('deploy taotao project'){
             steps{
                 sh 'echo deploy taotao!'
-                sh 'echo $WORKSPACE;taotao_dir = $(dirname $WORKSPACE);echo $taotao_dir'
+                sh 'echo $WORKSPACE;env.taotao_dir = $(dirname $WORKSPACE);echo env.taotao_dir'
                 sh 'git clone https://gitee.com/snowlts/taotao.git $taotao_dir'
-                sh 'pip install -r $taotao_dir/requirements.txt'
-                sh 'python $taotao_dir/taotao/manage.py runserver'
+                sh 'pip install -r env.taotao_dir/requirements.txt'
+                sh 'python env.taotao_dir/taotao/manage.py runserver'
                 sh 'echo deploy taotao done!'
             }
         }
