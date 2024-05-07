@@ -18,7 +18,7 @@ pipeline{
                     }
 
                     sh "pip install -r '${taotao_dir}'/requirements.txt"
-                    sh "python '${taotao_dir}'/taotao/manage.py runserver"
+                    sh "python '${taotao_dir}'/taotao/manage.py runserver &"
                 }
 
                 sh 'echo deploy taotao done!'
