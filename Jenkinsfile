@@ -5,9 +5,14 @@ pipeline{
         preserveStashes(buildCount: 10)
     }
     stages{
-        stage('Build'){
+        stage('deploy taotao project'){
             steps{
-                sh 'echo build success!'
+                sh 'echo deploy taotao!'
+                sh 'echo $WORKSPACE;taotao_dir = $(dirname $WORKSPACE);echo $taotao_dir'
+                sh 'git clone https://gitee.com/snowlts/taotao.git $taotao_dir'
+                sh 'pip install -r $taotao_dir/requirements.txt'
+                sh 'python $taotao_dir/taotao/manage.py runserver'
+                sh 'echo deploy taotao done!'
             }
         }
         stage('Test'){
