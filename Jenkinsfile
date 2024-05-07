@@ -48,7 +48,7 @@ pipeline{
         }
         success{
             echo "test success"
-            deleteDir()
+            //deleteDir()
 
         }
         failure{
