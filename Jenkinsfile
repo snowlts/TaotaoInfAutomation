@@ -9,7 +9,9 @@ pipeline{
             steps{
                 sh 'echo deploy taotao!'
                 sh 'echo $WORKSPACE'
-                def taotao_dir=sh(script: "dirname $WORKSPACE", returnStdout:true).trim()
+                script{
+                    def taotao_dir=sh(script: "dirname $WORKSPACE", returnStdout:true).trim()
+                }
                 echo '${taotao_dir}'
 
                 dir('${taotao_dir}'){
