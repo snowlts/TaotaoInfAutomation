@@ -15,7 +15,7 @@ def get_path(file_name):
     elif file_name =='testcases':
         return os.path.join(basedir, 'data', 'testcases.yml')
     elif file_name =='report_org':
-        return os.path.join(basedir,'report','report')
+        return os.path.join(basedir,'report','results')
     elif file_name == 'html_report':
         return os.path.join(basedir, 'report', 'html')
     else:
