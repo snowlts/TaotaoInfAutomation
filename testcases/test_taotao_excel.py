@@ -1,9 +1,12 @@
+import os.path
+from datetime import datetime
+
 import allure
 import requests
 import json
 import pytest
 
-from config.config import config
+from config.config import config,get_path
 from data.DataLoader import testcases
 from utils.RequestUtil import Request
 from utils.LogUtil import logger_init
@@ -11,7 +14,7 @@ from utils.AssertUtil import Assert
 from utils.DbUtil import db
 from utils.LogUtil import my_log
 
-from common.common import parameterize, json_load, get_sql_field,get_allure_severity
+from common.common import parameterize, json_load, get_sql_field,get_allure_severity,gen_allure_report
 
 #
 base_url = config.url or 'http://127.0.0.1:8000/'
@@ -105,3 +108,11 @@ class Test_Taotao(object):
         allure.dynamic.severity(get_allure_severity(testcase['严重等级']))
         http_response = self._run_case(testcase)
         self._assert_case(http_response, testcase)
+
+
+if __name__ == "__main__":
+    report_dir = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    report_org = os.path.join(get_path('report_org'),report_dir)
+    html_report = os.path.join(get_path('html_report'),report_dir)
+    pytest.main(['-s','test_taotao_excel.py',"--alluredir",report_org])
+    gen_allure_report(report_org,html_report)

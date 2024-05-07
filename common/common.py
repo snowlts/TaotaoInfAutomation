@@ -1,5 +1,12 @@
+from _datetime import datetime
 import json
+import os
 import re
+import subprocess
+from utils.LogUtil import logger_init
+from config.config import get_path
+
+logger = logger_init()
 
 def json_load(str1,str_type='json'):
     if str1 and str_type=='json':
@@ -36,8 +43,17 @@ def get_allure_severity(case_severity):
     else:
         raise Exception('没有这个用例等级，请检查是否书写错误')
 
-
-
+def gen_allure_report(report_org,html_report):
+    logger.info("生成allure测试报告:%s" % html_report)
+    try:
+        category_json = os.path.join(get_path("report_org"),"categories.json")
+        cp_cmd = "cp %s %s" % (category_json,report_org)
+        subprocess.call(cp_cmd,shell=True)
+        cmd = "allure generate %s -o %s" % (report_org,html_report)
+        subprocess.call(cmd,shell=True)
+    except Exception as e:
+        logger.error("生成测试报告失败，错误信息: %s" % e)
+        raise
 
 class Parameterize:
     def __init__(self,pattern=r'\${(.+?)}\$'):

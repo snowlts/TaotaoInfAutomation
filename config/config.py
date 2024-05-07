@@ -14,6 +14,10 @@ def get_path(file_name):
         return os.path.join(basedir,'logs')
     elif file_name =='testcases':
         return os.path.join(basedir, 'data', 'testcases.yml')
+    elif file_name =='report_org':
+        return os.path.join(basedir,'report','report')
+    elif file_name == 'html_report':
+        return os.path.join(basedir, 'report', 'html')
     else:
         raise FileNotFoundError("File %s not found!" % file_name)
 
