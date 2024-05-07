@@ -17,8 +17,8 @@ pipeline{
                         git credentialsId: '381e7be1-1cf0-4a2c-9577-8e4e7ab2026b', url: 'https://gitee.com/snowlts/taotao.git'
                     }
 
-                    sh 'pip install -r ${taotao_dir}/requirements.txt'
-                    sh 'python ${taotao_dir}/taotao/manage.py runserver'
+                    sh "pip install -r '${taotao_dir}'/requirements.txt"
+                    sh "python '${taotao_dir}'/taotao/manage.py runserver"
                 }
 
                 sh 'echo deploy taotao done!'
