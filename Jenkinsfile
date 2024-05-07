@@ -9,10 +9,10 @@ pipeline{
             steps{
                 sh 'echo deploy taotao!'
                 sh 'echo $WORKSPACE'
-                def taotao_dir = sh(script: "dirname $WORKSPACE", returnStdout:true).trim()
-                echo "${taotao_dir}"
+                def taotao_dir=sh(script: "dirname $WORKSPACE", returnStdout:true).trim()
+                echo '${taotao_dir}'
 
-                dir("${taotao_dir}"){
+                dir('${taotao_dir}'){
                     git credentialsId: '381e7be1-1cf0-4a2c-9577-8e4e7ab2026b', url: 'https://gitee.com/snowlts/taotao.git'
                 }
 
