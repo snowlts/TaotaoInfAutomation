@@ -9,3 +9,11 @@ BASE:
       logfile_extention: ".log"
     db:
       uri: "H:/codes/python/django-restful/taotao/taotao/db.sqlite3"
+    email:
+      smtp_server: "smtp.163.com"
+      username: "111"
+      password: "111111"
+      sender: "111@163.com"
+      recievers:
+        - "111@163.com"
+        - "111@126.com"

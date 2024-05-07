@@ -41,6 +41,10 @@ class ConfigLoader:
     def db(self):
         return self._data['BASE']['test']['db']
 
+    @property
+    def email(self):
+        return self._data['BASE']['test']['email']
+
 config = ConfigLoader()
 
 
