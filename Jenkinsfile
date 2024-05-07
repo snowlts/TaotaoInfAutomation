@@ -9,7 +9,7 @@ pipeline{
             steps{
                 sh 'echo deploy taotao!'
                 sh 'echo $WORKSPACE'
-                env.taotao_dir = $(dirname WORKSPACE);
+                env.taotao_dir = $(dirname env.WORKSPACE);
                 echo env.taotao_dir
                 sh 'git clone https://gitee.com/snowlts/taotao.git ${env.taotao_dir}'
                 sh 'pip install -r ${env.taotao_dir}/requirements.txt'
