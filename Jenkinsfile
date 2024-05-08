@@ -43,14 +43,14 @@ pipeline{
             sh 'report_dir=$WORKSPACE/report/results;if [ ! -e $report_dir ];then mkdir $report_dir;fi'
             allure includeProperties: false, jdk: '', results: [[path: 'report/results']]
             mail bcc: '',
-                body: "测试报告链接: <a href='http://192.168.2.133:8001/job/TaotaoInfAutomation/$BUILD_NUMBER/allure/'>请点击</a>",
+                to: 'snowlts@163.com',
                 cc: 'snowlts@126.com',
                 from: 'snowlts@163.com',
                 replyTo: 'snowlts@163.com',
                 subject: '测试报告',
-                to: 'snowlts@163.com',
+                body: "测试报告链接: <a href='http://192.168.2.133:8001/job/TaotaoInfAutomation/$BUILD_NUMBER/allure/'>请点击</a>",
                 charset: 'UTF-8',
-                mimetype: 'text/html'
+                mimeType: 'text/html'
         }
         success{
             echo "test success"
