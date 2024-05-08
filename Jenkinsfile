@@ -42,7 +42,7 @@ pipeline{
             sh 'echo $WORKSPACE'
             sh 'report_dir=$WORKSPACE/report/results;if [ ! -e $report_dir ];then mkdir $report_dir;fi'
             allure includeProperties: false, jdk: '', results: [[path: 'report/results']]
-            mail bcc: '', body: "http://192.168.2.133:8001/job/TaotaoInfAutomation/$BUILD_NUMBER/allure/", cc: 'snowlts@126.com', from: '', replyTo: '', subject: '测试报告', to: 'snowlts@163.com'
+            mail bcc: '', body: "http://192.168.2.133:8001/job/TaotaoInfAutomation/$BUILD_NUMBER/allure/", cc: 'snowlts@126.com', from: 'snowlts@163.com', replyTo: 'snowlts@163.com', subject: '测试报告', to: 'snowlts@163.com'
         }
         success{
             echo "test success"
