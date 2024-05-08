@@ -32,7 +32,9 @@ python, pytest, request, allure, jenkins(jenkinsfile)
 （2）参考https://www.cnblogs.com/crowbrother/p/13795617.html
 3、注意引号的使用：
 （1）参考https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#string-interpolation
-（2）
+（2）对环境变量和普通变量处理不同，环境变量jenkins会去替换，普通变量要特别关注单引号双引号，单引号不能替换
 4、注意环境变量的使用：https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#setting-environment-variables-dynamically
 5、命令返回值赋值给变量，参考：https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#setting-environment-variables-dynamically
-6、script方式语法使用需要加script{},参考：https://www.jenkins.io/doc/book/pipeline/syntax/#script
+6、区分declare和script两种语法区别，
+（1）script方式语法使用需要加script{},参考：https://www.jenkins.io/doc/book/pipeline/syntax/#script
+（2）如，def a='1' 是script模式

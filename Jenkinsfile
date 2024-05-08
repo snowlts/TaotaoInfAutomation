@@ -14,7 +14,7 @@ pipeline{
             }
             steps{
                 echo 'deploy taotao!'
-                sh 'echo $WORKSPACE'
+                echo $WORKSPACE
                 script{
                     echo "$TAOTAO_DIR"
 
