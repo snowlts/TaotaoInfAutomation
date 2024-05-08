@@ -22,7 +22,8 @@ python, pytest, request, allure, jenkins(jenkinsfile)
 2、有空可以扩展feishu或者企业微信之类的消息发送
 3、taotao部署要检查是否成功，以及提前清除之前的部署，还有就是可以部署到其他node
 4、jenkinsfile发邮件功能可以扩展，使用python脚本发送更复杂内容，可以支持附件，暂时就这样
-3、allure category支持
+5、allure category支持
+6、用例可以扩充
 
 
 遇到的问题和解决
