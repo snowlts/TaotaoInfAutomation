@@ -49,7 +49,7 @@ pipeline{
                 replyTo: 'snowlts@163.com',
                 subject: '测试报告',
                 body: "测试报告链接: <a href='http://192.168.2.133:8001/job/TaotaoInfAutomation/$BUILD_NUMBER/allure/'>请点击</a>",
-                charset: 'GBK',
+                charset: 'UTF-8',
                 mimeType: 'text/html'
         }
         success{
