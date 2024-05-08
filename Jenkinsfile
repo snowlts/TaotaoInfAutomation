@@ -47,15 +47,17 @@ pipeline{
             sh 'echo $WORKSPACE'
             sh 'report_dir=$WORKSPACE/report/results;if [ ! -e $report_dir ];then mkdir $report_dir;fi'
             allure includeProperties: false, jdk: '', results: [[path: 'report/results']]
+            echo "send email"
             mail bcc: '',
                 to: 'snowlts@163.com',
                 cc: 'snowlts@126.com',
                 from: 'snowlts@163.com',
                 replyTo: 'snowlts@163.com',
-                subject: 'æµ‹è¯•æŠ¥å‘Š',
-                body: "æµ‹è¯•æŠ¥å‘Šé“¾æŽ¥: <a href='http://192.168.2.133:8001/job/TaotaoInfAutomation/$BUILD_NUMBER/allure/'>è¯·ç‚¹å‡»</a>",
+                subject: '²âÊÔ±¨¸æ',
+                body: "²âÊÔ±¨¸æÁ´½Ó: <a href='http://192.168.2.133:8001/job/TaotaoInfAutomation/$BUILD_NUMBER/allure/'>Çëµã»÷</a>",
                 charset: 'UTF-8',
                 mimeType: 'text/html'
+            echo "email sent"
         }
         success{
             echo "test success"
