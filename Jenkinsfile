@@ -7,7 +7,7 @@ pipeline{
     stages{
         stage('deploy taotao project'){
             steps{
-                sh 'echo deploy taotao!'
+                echo 'deploy taotao!'
                 sh 'echo $WORKSPACE'
                 script{
                     def taotao_dir=sh(script: "dirname '$WORKSPACE'", returnStdout:true).trim()
@@ -21,7 +21,7 @@ pipeline{
                     sh "python '${taotao_dir}'/taotao/manage.py runserver &"
                 }
 
-                sh 'echo deploy taotao done!'
+                echo 'deploy taotao done!'
             }
         }
         stage('Test'){
@@ -42,9 +42,7 @@ pipeline{
             sh 'echo $WORKSPACE'
             sh 'report_dir=$WORKSPACE/report/results;if [ ! -e $report_dir ];then mkdir $report_dir;fi'
             allure includeProperties: false, jdk: '', results: [[path: 'report/results']]
-
-
-
+            mail bcc: '', body: "http://192.168.2.133:8001/job/TaotaoInfAutomation/$BUILD_NUMBER/allure/", cc: 'snowlts@126.com', from: '', replyTo: '', subject: '测试报告', to: 'snowlts@163.com'
         }
         success{
             echo "test success"
