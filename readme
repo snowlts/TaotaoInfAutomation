@@ -1,4 +1,28 @@
+技术栈
+python, pytest, request, allure, jenkins(jenkinsfile)
+
+目前支持
+1、读取excel或者yaml格式的用例，并顺序执行
+（1）支持有依赖关系的用例执行
+（2）支持错误重试
+（3）支持http返回code，返回值的校验，支持通过数据库比对，对结果进行校验
+2、支持allure报告
+3、支持通过邮件发送测试结果（测试报告链接）
+4、实现了jenkins集成，jenkins pipeline通过读取代码中的jenkinsfile来执行测试
+（1）对被测项目进行部署
+（2）执行测试用例
+（3）生成测试报告并通过邮件形式发送通知
+5、支持日志记录
+6、项目配置参数通过配置文件管理
+
+
+
+可扩展
 1、common再做更深的包装
 2、有空可以扩展feishu或者企业微信之类的消息发送
 3、taotao部署要检查是否成功，以及提前清除之前的部署，还有就是可以部署到其他node
 4、jenkinsfile发邮件功能可以扩展，使用python脚本发送更复杂内容，可以支持附件，暂时就这样
+
+
+遇到的问题和解决
+1、jenkins发邮件，中文字符乱码：参考https://www.cnblogs.com/shonblog/p/14092447.html
