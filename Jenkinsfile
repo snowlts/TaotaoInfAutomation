@@ -7,10 +7,10 @@ pipeline{
     stages{
         stage('deploy taotao project'){
             environment{
-                TAOTAO_DIR = """${sh(
+                TAOTAO_DIR = '''${sh(
                     returnStdout: true,
                     script: 'dirname "$WORKSPACE"'
-                )}""".trim()
+                )}'''.trim()
             }
             steps{
                 echo 'deploy taotao!'

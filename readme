@@ -22,10 +22,17 @@ python, pytest, request, allure, jenkins(jenkinsfile)
 2、有空可以扩展feishu或者企业微信之类的消息发送
 3、taotao部署要检查是否成功，以及提前清除之前的部署，还有就是可以部署到其他node
 4、jenkinsfile发邮件功能可以扩展，使用python脚本发送更复杂内容，可以支持附件，暂时就这样
+3、allure category支持
 
 
 遇到的问题和解决
 1、jenkins发邮件，中文字符乱码：参考https://www.cnblogs.com/shonblog/p/14092447.html
-2、jenkins console log中文字符乱码
-3、注意引号的使用
-4、注意环境变量的使用
+2、jenkins console log中文字符乱码:
+（1）参考https://cloud.tencent.com/developer/article/1942097；
+（2）参考https://www.cnblogs.com/crowbrother/p/13795617.html
+3、注意引号的使用：
+（1）参考https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#string-interpolation
+（2）
+4、注意环境变量的使用：https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#setting-environment-variables-dynamically
+5、命令返回值赋值给变量，参考：https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#setting-environment-variables-dynamically
+6、script方式语法使用需要加script{},参考：https://www.jenkins.io/doc/book/pipeline/syntax/#script
