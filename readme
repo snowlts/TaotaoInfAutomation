@@ -26,3 +26,5 @@ python, pytest, request, allure, jenkins(jenkinsfile)
 
 遇到的问题和解决
 1、jenkins发邮件，中文字符乱码：参考https://www.cnblogs.com/shonblog/p/14092447.html
+2、注意引号的使用
+3、注意环境变量的使用

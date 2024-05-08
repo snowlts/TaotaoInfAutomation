@@ -15,7 +15,7 @@ if __name__ == "__main__":
     # html_report = os.path.join(get_path('html_report'),report_dir)
     report_org = get_path('report_org')
     html_report = get_path('html_report')
-    pytest.main(['-s','--reruns',3,'--reruns-delay',1,'testcases/test_taotao_excel.py',"--alluredir",report_org,'--clean-alluredir'])
+    pytest.main(['-s','--reruns','3','--reruns-delay','1','testcases/test_taotao_excel.py',"--alluredir",report_org,'--clean-alluredir'])
     # gen_allure_report(report_org,html_report)
     # report_link = "http://localhost:63342/TaotaoInfAutomation/report/html/{}/index.html".format(report_dir)
     # logger.info("send email")
